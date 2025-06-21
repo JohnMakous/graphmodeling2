@@ -1,1 +1,372 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Recommended meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!-- PyScript CSS -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
+        <!-- CSS for examples -->
+        <link rel="stylesheet" href="./assets/css/examples.css" />
+        <!-- This script tag bootstraps PyScript -->
+        <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+        <title>Graphmodeling</title>
+    </head>
+	
+<style>
+	.grid-container {
+		display: grid;
+		grid-template-columns: 14% 14% 52% 20%;
+		padding: 0px;
+		border-style: solid;
+		border-color: rgba(0, 0, 255, 0.8);
+		border-width: thick;
+		}
 
+	.data-table {
+		align-items: start;
+		font-size: 90%;
+		background-color: rgba(39, 222, 245, 0.3);
+		border-style: solid;
+		border-color: black;
+		border-width: thin;
+		}
+        
+	.models-list {
+		vertical-align: top;
+		font-size: 90%;
+		background-color: rgba(39, 222, 245, 0.3);
+		border-style: solid;
+		border-color: black;
+		border-width: thin;
+		}
+	
+	.graph-block {
+		place-content: stretch;
+		background-color: rgba(39, 222, 245, 0.3);
+		align-items: start;
+		border-style: solid;
+		border-color: black;
+		border-width: thin;
+		}
+	
+	.graph-settings	{
+		font-size: 90%;
+		background-color: rgba(39, 222, 245, 0.3);
+		border-style: solid;
+		border-color: black;
+		border-width: thin;
+		}
+
+	.col-25 {
+		float: left;
+		width: 25%;
+		margin-top: 6px;
+		margin-bottom: 6px;
+		}
+
+	.col-75 {
+		float: left;
+		width: 75%;
+		margin-top: 6px;
+		margin-bottom: 6px;
+		}
+
+	.col-60 {
+		float: left;
+		width: 60%;
+		margin-top: 6px;
+		margin-bottom: 6px;
+		}
+
+	.col-40 {
+		float: left;
+		width: 40%;
+		margin-top: 6px;
+		margin-bottom: 6px;
+		}
+</style>
+
+<body>
+<h3 style="font-size: 20px"><center>Graphmodeling</center></h3>
+<p>Fill in data in the table. Plot data. Choose a model; adjust the coefficients to find a good fit.</p>
+	
+<div class="grid-container">
+  <div class="data-table">
+		<h2 style="font-size: 16px"><center>Data Table</center></h2>
+  		<table style="width:100%">
+			<tr>
+				<td style="width:40%" align ="center">x-Values</td>
+				<td style="width:40%" align ="center">y-Values</td>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x1" placeholder="x1" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y1" placeholder="y1" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x2" placeholder="x2" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y2" placeholder="y2" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x3" placeholder="x3" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y3" placeholder="y3" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x4" placeholder="x4" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y4" placeholder="y4" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x5" placeholder="x5" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y5" placeholder="y5" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x6" placeholder="x6" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y6" placeholder="y6" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x7" placeholder="x7" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y7" placeholder="y7" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x8" placeholder="x8" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y8" placeholder="y8" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x9" placeholder="x9" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y9" placeholder="y9" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x10" placeholder="x10" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y10" placeholder="y10" size=6/>
+			</tr>			
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x11" placeholder="x11" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y11" placeholder="y11" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x12" placeholder="x12" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y12" placeholder="y12" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x13" placeholder="x13" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y13" placeholder="y13" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x14" placeholder="x14" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y14" placeholder="y14" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x15" placeholder="x15" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y15" placeholder="y15" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x16" placeholder="x16" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y16" placeholder="y16" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x17" placeholder="x17" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y17" placeholder="y17" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x18" placeholder="x18" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y18" placeholder="y18" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x19" placeholder="x19" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y19" placeholder="y19" size=6/>
+			</tr>
+			<tr>
+				<td style="width:40%" align ="left"><input type="text" id="x20" placeholder="x20" size=6/>
+				<td style="width:40%" align ="left"><input type="text" id="y20" placeholder="y20" size=6/>
+			</tr>
+
+		</table>
+		<div><button id="update-button" type="submit" py-click="update_graph">Plot data</button></div>
+  </div>
+	
+  <div class="models-list">
+  		<div>
+			<h2 style="font-size: 16px"><center>Models to Fit Data</center></h2>
+	</div>
+
+	  <!-- Linear model -->
+		<table style="width:100%">
+			<tr>
+				<td  colspan="2">1. Linear: y = mx + b</td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="lin_c1">m</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="lin_c1" placeholder="0" size=10/></td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="lin_c0">b</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="lin_c0" placeholder="0" size=10/></td>
+			</tr>
+		</table>
+	  	<button id="linear-button" type="submit" py-click="linear_model">Try fit</button>
+        <div><br></div>
+
+	  <!-- Quadratic model -->
+        <table style="width:100%">
+			<tr>
+				<td  colspan="2">2. Quadratic: y = A*x<sup>2</sup> + B*x + C</td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="q2">A</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="q2" placeholder="0" size=10/></td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="q1">B</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="q1" placeholder="0" size=10/></td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="q0">C</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="q0" placeholder="0" size=10/></td>
+			</tr>
+		</table>
+	  	  	<button id="submit-button" type="submit" py-click="quadratic_model">Try fit</button>
+        <div><br></div>
+
+	  <!-- Inverse model -->
+	   <table style="width:100%">
+          <tr>
+				<td  colspan="2">3. Inverse: y = c/x</td>
+		  </tr>
+		  <tr>
+			    <td style="width:20%" align ="right"><label for="ic">c</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="ic" placeholder="0" size=10/></td>
+		  </tr>
+		</table>
+	  	<button id="submit-button" type="submit" py-click="inverse_model">Try fit</button>
+        <div><br></div>	
+
+	  <!-- Square root model -->
+	  	<table style="width:100%">
+			<tr>
+				<td  colspan="2">4. Square root: y = c*sqrt(x) + b</td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="sqrt_c1">c</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="sqrt_c1" placeholder="0" size=10/></td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="sqrt_c0">b</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="sqrt_c0" placeholder="0" size=10/></td>
+			</tr>
+		</table>
+	  	<button id="submit-button" type="submit" py-click="sqrt_model">Try fit</button>
+        <div><br></div>
+	  
+ 	<!-- Power model -->
+	  	<table style="width:100%">
+			<tr>
+				<td  colspan="2">5. Power: y = c*x<sup>n</sup> + b</td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="powerc">c</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="powerc" placeholder="0" size=10/></td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="powern">n</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="powern" placeholder="0" size=10/></td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="powerb">b</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="powerb" placeholder="0" size=10/></td>
+			</tr>
+		</table>
+	  	<button id="submit-button" type="submit" py-click="power_model">Try fit</button>
+        <div><br></div>
+	</div>
+	
+	<div class="graph-block"> 
+		<div id="graph" align ="center"></div>
+	</div>
+	
+	<div class="graph-settings">
+		<h2 style="font-size: 16px"><center>Graph Settings</center></h2>
+		<div class="col-25">
+			<label for="xlabel"> x-variable:</label>
+		</div>
+		<div class="col-75">
+			<input type="text" id="xlabel" name="xlabel" placeholder="x" size="16" size=6/>
+		</div>
+		
+		<div class="col-25">
+			<label for="ylabel"> y-variable:</label>
+		</div>
+		<div class="col-75">
+			<input type="text" id="ylabel" name="ylabel" placeholder="y" size="16" size=6/>
+		</div>
+		
+		<table style="width:100%" padding: 20px;>
+			<tr>
+				<td style="width:10%" align ="right"><label for="xmin">xmin:</label></td>
+				<td style="width:40%" align ="left"><input type="text" id="xmin" placeholder="0" size=6/>
+				<td style="width:10%" align ="right"><label for="y1">xmax:</label></td>
+				<td style="width:40%" align ="left"><input type="text" id="xmax" placeholder="10" size=6/>
+			</tr>
+			<tr>
+				<td style="width:10%" align ="right"><label for="ymin">ymin:</label></td>
+				<td style="width:40%" align ="left"><input type="text" id="ymin" placeholder="0" size=6/>
+				<td style="width:10%" align ="right"><label for="ymax">ymax:</label></td>
+				<td style="width:40%" align ="left"><input type="text" id="ymax" placeholder="10" size=6/>
+			</tr>
+		</table>
+		
+		<div class="col-75">
+			<label for="graphscale">Graph size multiplier (1.0 - 1.5):</label>
+		</div>
+		<div class="col-25">
+			<input type="text" id="graphscale" size="5" size=6/>
+		</div>	
+	
+		<button id="submit-button" type="submit" py-click="update_graph">Update graph settings</button>
+		
+		<p><br style = “line-height:20px;”></p>
+		
+		<h2 style="font-size: 16px"><center>More Models to Fit Data</center></h2>
+
+		<!-- Inverse Square Model -->
+	   	<table style="width:100%">
+          	<tr>
+				<td  colspan="2">6. Inverse Square: y = c/x<sup>2</sup></td>
+		  	</tr>
+		  	<tr>
+			    <td style="width:20%" align ="right"><label for="invsqc">c</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="invsqc" placeholder="0" size=10/></td>
+		  	</tr>
+		</table>
+	  	<button id="submit-button" type="submit" py-click="inversesquare_model">Try fit</button>
+        <div><br></div>	
+
+		<!-- Exponential Model -->
+	   	<table style="width:100%">
+          	<tr>
+				<td  colspan="2">7. Exponential: y = A*e<sup>B*x</sup> + C</td>
+		  	</tr>
+		  	<tr>
+				<td style="width:20%" align ="right"><label for="exp1">A</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="exp1" placeholder="0" size=10/></td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="exp2">B</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="exp2" placeholder="0" size=10/></td>
+			</tr>
+			<tr>
+				<td style="width:20%" align ="right"><label for="exp0">C</label></td>
+				<td style="width:80%" align ="left"><input type="text" id="exp0" placeholder="0" size=10/></td>
+			</tr>
+		</table>
+	  	<button id="submit-button" type="submit" py-click="exponential_model">Try fit</button>
+        <div><br></div>
+		
+	</div>
+</div>
+	
+<section class="pyscript">
+	<script type="py" src="./main.py" config="./pyscript.toml"></script>
+</section>	
+	    
+    </body>
+</html>
