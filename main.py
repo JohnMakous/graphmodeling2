@@ -4,6 +4,10 @@ from pyweb import pydom
 from pyscript import display
 
 # Check if input value is a number. This enables blank input boxes in the html data table to be ignored.
+def graph_update(event):
+	if linear_model == "TRUE":
+		print("Linear Model!!")
+
 def is_float(string):
 	c= remove(string.replace(".", ""))   # 'remove' removes the whitespace in string
 	if c.replace("-", "").isnumeric():
