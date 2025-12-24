@@ -193,8 +193,11 @@
 			<!-- name = button group -->
 			<label for="linear_model">Linear: y = mx + b</label><br></div>
 		<div>
-			<input type="radio" id="quadratic_model" name="quadratic_model" value="TRUE">
-			<label for="linear_model">Quadratic: y = A*x<sup>2</sup> + B*x + C</label><br></div>
+			<!-- <input type="radio" id="quadratic_model" name="quadratic_model" value="TRUE">-->
+			<input type="checkbox" id="quadratic_model"
+                    class="checkbox" />
+        	<label for="quadratic_model" class="toggle">
+		</div>
 
 		<div>
 			<button id="submit-button" type="submit" py-click="graph_update">Update graph</button>
