@@ -5,8 +5,102 @@ from pyscript import display
 
 # Check if input value is a number. This enables blank input boxes in the html data table to be ignored.
 def graph_update(event):
-	if linear_model == "TRUE":
-		print("Linear Model!!")
+	if quadratic_model == "TRUE":
+		if pydom["input#xmin"][0].value != "":
+		x_min = pydom["input#xmin"][0].value
+		x_min = float(x_min)
+	else:
+		x_min = 0
+	
+	if pydom["input#xmax"][0].value != "":
+		x_max = pydom["input#xmax"][0].value
+		x_max= float(x_max)
+	else:
+		x_max = 10
+
+	if pydom["input#ymin"][0].value != "":
+		y_min = pydom["input#ymin"][0].value
+		y_min = float(y_min)
+	else:
+		y_min = 0
+	
+	if pydom["input#ymax"][0].value != "":
+		y_max = pydom["input#ymax"][0].value
+		y_max= float(y_max)
+	else:
+		y_max = 10
+
+	if pydom["input#xlabel"][0].value != "":
+		x_label = pydom["input#xlabel"][0].value
+	else:
+		x_label = "x"
+
+	if pydom["input#ylabel"][0].value != "":
+		y_label = pydom["input#ylabel"][0].value
+	else:
+		y_label = "y"
+
+	if pydom["input#graphscale"][0].value != "":
+		graph_scale = pydom["input#graphscale"][0].value
+		graph_scale= float(graph_scale)
+	else:
+		graph_scale = 1.0
+	
+	x1 = pydom["input#x1"][0].value
+	x2 = pydom["input#x2"][0].value
+	x3 = pydom["input#x3"][0].value
+	x4 = pydom["input#x4"][0].value
+	x5 = pydom["input#x5"][0].value
+	x6 = pydom["input#x6"][0].value
+	x7 = pydom["input#x7"][0].value
+	x8 = pydom["input#x8"][0].value
+	x9 = pydom["input#x9"][0].value
+	x10 = pydom["input#x10"][0].value
+	x11 = pydom["input#x11"][0].value
+	x12 = pydom["input#x12"][0].value
+	x13 = pydom["input#x13"][0].value
+	x14 = pydom["input#x14"][0].value
+	x15 = pydom["input#x15"][0].value
+	x16 = pydom["input#x16"][0].value
+	x17 = pydom["input#x17"][0].value
+	x18 = pydom["input#x18"][0].value
+	x19 = pydom["input#x19"][0].value
+	x20 = pydom["input#x20"][0].value
+
+	y1 = pydom["input#y1"][0].value
+	y2 = pydom["input#y2"][0].value
+	y3 = pydom["input#y3"][0].value
+	y4 = pydom["input#y4"][0].value
+	y5 = pydom["input#y5"][0].value
+	y6 = pydom["input#y6"][0].value
+	y7 = pydom["input#y7"][0].value
+	y8 = pydom["input#y8"][0].value
+	y9 = pydom["input#y9"][0].value
+	y10 = pydom["input#y10"][0].value
+	y11 = pydom["input#y11"][0].value
+	y12 = pydom["input#y12"][0].value
+	y13 = pydom["input#y13"][0].value
+	y14 = pydom["input#y14"][0].value
+	y15 = pydom["input#y15"][0].value
+	y16 = pydom["input#y16"][0].value
+	y17 = pydom["input#y17"][0].value
+	y18 = pydom["input#y18"][0].value
+	y19 = pydom["input#y19"][0].value
+	y20 = pydom["input#y20"][0].value
+
+	listx = [x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,x15,x16,x17,x18,x19,x20]
+	listy = [y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17,y18,y19,y20]
+	
+	# Identify x input elements from data table that are numeric; store in an array
+	x_list=[]
+	i=0
+	while (i<len(listx)):
+		if is_float(listx[i])== False:
+			i=i+1
+		else:
+			a = remove(listx[i])
+			x_list.append(float(a))
+			i=i+1
 
 def is_float(string):
 	c= remove(string.replace(".", ""))   # 'remove' removes the whitespace in string
